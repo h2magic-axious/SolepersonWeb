@@ -1,10 +1,10 @@
 from django import template
 
-from administrator.models import Menus
+from blogapp.models import Category
 
 register = template.Library()
 
 
 @register.simple_tag
-def administrator_menus():
-    return Menus.objects.all()
+def administrator_category_list():
+    return Category.objects.all()
