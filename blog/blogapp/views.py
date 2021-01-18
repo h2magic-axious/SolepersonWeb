@@ -1,3 +1,8 @@
 from django.shortcuts import render
 
+
 # Create your views here.
+def index(request):
+    return render(request, 'blogapp/index.html', context={
+        'welcome': "Welcome to my home page"
+    })
