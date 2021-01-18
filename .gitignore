@@ -8,6 +8,7 @@ __pycache__/
 
 # django files or directories
 migrations/
+db.sqlite3
 
 # Distribution / packaging
 .Python
