@@ -48,10 +48,10 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{% url 'admin:admin_index' %}" class="nav-link">
                             <i class="far ion-earth nav-icon"></i>
                             <p>
-                                Dashboard
+                                仪表盘
                             </p>
                         </a>
                     </li>
@@ -64,13 +64,27 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="{% url 'admin:admin_article_edit' %}" class="nav-link">
                                     <i class="far ion-edit nav-icon"></i>
                                     <p>新增文章</p>
                                 </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="#" class="nav-link">
                                     <i class="far ion-ios-list nav-icon"></i>
                                     <p>文章列表</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{% url 'admin:admin_categories_list' %}" class="nav-link">
+                                    <i class="far ion-filing nav-icon"></i>
+                                    <p>分类列表</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="far ion-pricetags nav-icon"></i>
+                                    <p>标签列表</p>
                                 </a>
                             </li>
                         </ul>
