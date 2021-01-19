@@ -14,7 +14,9 @@ def all_categories():
 
 @register.simple_tag
 def all_tags():
-    return Tag.objects.all()
+    return [
+        (tag.name, len(tag.article_set.all())) for tag in Tag.objects.all()
+    ]
 
 
 @register.simple_tag
