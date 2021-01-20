@@ -1,5 +1,8 @@
 from django.db import models
 from django.urls import reverse
+from django.utils.html import strip_tags
+
+import markdown
 
 
 # Create your models here.
@@ -27,7 +30,7 @@ class Tag(models.Model):
 
 class Article(models.Model):
     title = models.CharField('标题', max_length=70)
-    excerpt = models.CharField('摘要', max_length=200, blank=True)
+    excerpt = models.CharField('摘要', max_length=50, blank=True)
     created_time = models.DateTimeField('发布时间', auto_now_add=True)
     content = models.TextField('正文')
 
@@ -43,3 +46,12 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog:detail', kwargs={'pk': self.pk})
+
+    def save(self, *args, **kwargs):
+        if not self.excerpt:
+            md = markdown.Markdown(extensions=[
+                'markdown.extensions.extra',
+                'markdown.extensions.codehilite'
+            ])
+            self.excerpt = strip_tags(md.convert(self.content))[:50]
+            super().save(*args, **kwargs)

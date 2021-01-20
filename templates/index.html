@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    {% for aritcle_item in article_list %}
+        <article class="post post-{{ article_item.pk }}">
+            <header class="entry-header">
+                <h1 class="entry-title">
+                    <a href="{{ aritcle_item.get_absolute_url }}">{{ article_item.title }}</a>
+                </h1>
+                <div class="entry-meta">
+                    <span class="post-category"><a href="#">{{ article_item.category.name }}</a></span>
+                    <span class="post-date">
+                                    <time class="entry-date" datetime="{{ article_item.created_time }}">
+                                        {{ article_item.created_time }}
+                                    </time>
+                                </span>
+                    <span class="comments-link">4 评论</span>
+                    <span class="views-count">588 阅读</span>
+                </div>
+            </header>
+            <div class="entry-content clearfix">
+                <p>{{ aritcle_item.excerpt  }}</p>
+                <div class="read-more cl-effect-14">
+                    <a href="{{ aritcle_item.get_absolute_url }}" class="more-link">继续阅读 <span
+                            class="meta-nav">→</span></a>
+                </div>
+            </div>
+        </article>
+    {% empty %}
+        <div class="no-post">暂时还没有发布的文章！</div>
+    {% endfor %}
+
+    <div class="pagination">
+        <ul>
+            <li><a href="">1</a></li>
+            <li><a href="">...</a></li>
+            <li><a href="">4</a></li>
+            <li><a href="">5</a></li>
+            <li class="current"><a href="">6</a></li>
+            <li><a href="">7</a></li>
+            <li><a href="">8</a></li>
+            <li><a href="">...</a></li>
+            <li><a href="">11</a></li>
+        </ul>
+    </div>
+{% endblock %}
