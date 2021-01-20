@@ -14,7 +14,7 @@ class Tag(models.Model):
 class Article(models.Model):
     title = models.CharField(max_length=70)
     excerpt = models.CharField(max_length=200, blank=True)
-    created_time = models.DateTimeField()
+    created_time = models.DateTimeField(auto_now_add=True)
     content = models.TextField()
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
