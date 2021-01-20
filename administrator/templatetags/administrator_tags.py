@@ -8,7 +8,7 @@ register = template.Library()
 @register.simple_tag
 def all_categories():
     return [
-        (category.name, len(category.article_set.all())) for category in Category.objects.all()
+        (category.id, category.name, len(category.article_set.all())) for category in Category.objects.all()
     ]
 
 
