@@ -11,8 +11,8 @@
                 <div class="entry-meta">
                     <span class="label label-warning"><a href="#">{{ article_item.category.name }}</a></span>
                     <span class="label label-info">{{ article_item.created_time.date }}</span>
-                    <span class="label label-primary"> 4 评论</span>
-                    <span class="label label-success">588 阅读</span>
+                    <span class="label label-primary"> {{ article_item.blogcomment_set.count }} 评论</span>
+                    <span class="label label-success">{{ article_item.views }} 阅读</span>
                 </div>
 
             </header>
