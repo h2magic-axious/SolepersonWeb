@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 {% load comment_tags %}
+{% load blog_app_tags %}
+
+{% block seo %}
+    <meta name="description" content="{{ article_item.excerpt }}">
+    <meta name="keywords" content="{% seo_keywords article_item %}">
+{% endblock %}
 
 {% block main %}
     <article class="post post-1">

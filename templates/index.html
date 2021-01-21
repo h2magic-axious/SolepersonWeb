@@ -1,5 +1,10 @@
 {% extends 'base.html' %}
 
+{% block seo %}
+    <meta name="description" content="一念之人 一个热爱数学物理的计算机工作者">
+    <meta name="keywords" content="一念之人,数学,计算机,Python,算法,C/C++">
+{% endblock %}
+
 {% block main %}
     {% for article_item in article_list %}
         <article class="post post-{{ article_item.pk }}">

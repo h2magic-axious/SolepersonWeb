@@ -31,3 +31,8 @@ def show_tags(context):
     return {
         'tag_list': Tag.objects.all()
     }
+
+
+@register.simple_tag
+def seo_keywords(article):
+    return ','.join(tag.name for tag in article.tags.all())

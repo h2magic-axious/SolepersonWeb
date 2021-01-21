@@ -81,3 +81,7 @@ def search(request):
     return render(request, 'index.html', context={
         'article_list': Article.objects.filter(Q(title__icontains=q) | Q(content__icontains=q))
     })
+
+
+def about(request):
+    return render(request, 'about.html')
