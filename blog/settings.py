@@ -24,7 +24,7 @@ SECRET_KEY = '0a22&7=qgcqyp5l@8=b#$mfw*4f#7=ntta$0!c*$9l6gi+1^q^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['soleperson.xyz', '*.soleperson.xyz']
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
