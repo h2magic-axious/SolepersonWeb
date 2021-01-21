@@ -8,5 +8,6 @@ urlpatterns = [
     path('article/<int:pk>/', views.ArticleDetailView.as_view(), name='detail'),
     path('archives/<int:year>/<int:month>/', views.ArchiveView.as_view(), name='archive'),
     path('category/<int:pk>/', views.CategoryView.as_view(), name='category'),
-    path('tags/<int:pk>/', views.TagView.as_view(), name='tag')
+    path('tags/<int:pk>/', views.TagView.as_view(), name='tag'),
+    path('search/', views.search, name='search')
 ]

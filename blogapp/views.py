@@ -1,8 +1,8 @@
 import markdown
+from django.db.models import Q
 
 from django.views.generic import ListView, DetailView
-
-from django.shortcuts import get_object_or_404
+from django.shortcuts import get_object_or_404, redirect, render
 
 from blogapp.models import Article, Category, Tag
 
@@ -72,3 +72,12 @@ class ArticleDetailView(DetailView):
         article.body = MARKDOWN.convert(article.content)
         article.toc = MARKDOWN.toc
         return article
+
+
+def search(request):
+    q = request.GET.get('q')
+    if not q:
+        return redirect('blog_app:index')
+    return render(request, 'index.html', context={
+        'article_list': Article.objects.filter(Q(title__icontains=q) | Q(content__icontains=q))
+    })
