@@ -14,7 +14,6 @@
     <!-- css -->
     <link href="https://cdn.bootcdn.net/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/pace.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet">
 
@@ -48,6 +47,20 @@
         .hljs-ln .hljs-ln-code {
             padding-left: 10px;
             white-space: pre;
+        }
+
+        .pace .pace-progress {
+            background: #000;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            height: 1px;
+            transition: width 1s;
+        }
+
+        .pace-inactive {
+            display: none;
         }
     </style>
 
