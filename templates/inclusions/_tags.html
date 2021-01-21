@@ -3,7 +3,8 @@
     <ul>
         {% for tag in tag_list %}
             <li>
-                <a href="{% url 'blog_app:tag' tag.pk %}">{{ tag.name }}</a>
+                <a href="{% url 'blog_app:tag' tag.pk %}">{{ tag.name }} &nbsp <span
+                        class="badge">{{ tag.article_set.count }}</span></a>
             </li>
         {% empty %}
             暂无标签！

@@ -1,8 +1,5 @@
 from django.db import models
 from django.urls import reverse
-from django.utils.html import strip_tags
-
-import markdown
 
 
 # Create your models here.

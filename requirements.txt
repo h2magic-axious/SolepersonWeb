@@ -1,3 +1,4 @@
 django==2.2.3
 django-cors-headers==3.3.0
 markdown
+django-pure-pagination==0.3.0
