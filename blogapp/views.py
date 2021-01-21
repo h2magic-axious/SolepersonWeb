@@ -12,7 +12,7 @@ MARKDOWN = markdown.Markdown(extensions=[
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'index.html', context={'article_list': Article.objects.all()})
 
 
 def detail(request, pk):

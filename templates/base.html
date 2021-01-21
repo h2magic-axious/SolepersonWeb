@@ -9,11 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- css -->
-    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/pace.css' %}">
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
-    <link href="https://cdn.bootcss.com/highlight.js/9.15.8/styles/github.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.5.0/styles/github.min.css" rel="stylesheet">
 
     <style>
         .codehilite {
@@ -73,7 +73,7 @@
 
                     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="cl-effect-11"><a href="index.html" data-hover="首页">首页</a></li>
+                            <li class="cl-effect-11"><a href="{% url 'blog_app:index' %}" data-hover="首页">首页</a></li>
                             <li class="cl-effect-11"><a href="full-width.html" data-hover="博客">博客</a></li>
                             <li class="cl-effect-11"><a href="about.html" data-hover="关于">关于</a></li>
                             <li class="cl-effect-11"><a href="contact.html" data-hover="联系">联系</a></li>
@@ -93,8 +93,6 @@
         </div>
     </header>
 </div>
-<div class="copyrights">Collect from <a href="http://www.cssmoban.com/">网页模板</a></div>
-<div class="copyrights">Modified by <a href="http://zmrenwu.com/">追梦人物的博客</a></div>
 
 <div class="content-body">
     <div class="container">
@@ -127,7 +125,7 @@
     <button type="button" class="overlay-close"><span class="ion-ios-close-empty"></span></button>
     <nav>
         <ul>
-            <li><a href="index.html">首页</a></li>
+            <li><a href="{% url 'blog_app:index' %}">首页</a></li>
             <li><a href="full-width.html">博客</a></li>
             <li><a href="about.html">关于</a></li>
             <li><a href="contact.html">联系</a></li>
@@ -137,22 +135,22 @@
 
 <script src="{% static 'js/script.js' %}"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.1.2/es5/tex-mml-chtml.min.js"></script>
-<script src="https://cdn.bootcss.com/highlight.js/9.15.8/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/9.15.8/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlightjs-line-numbers.js/2.7.0/highlightjs-line-numbers.min.js"></script>
 
-{#<script>#}
-{#    hljs.initHighlightingOnLoad();#}
-{#    hljs.initLineNumbersOnLoad();#}
-{#    MathJax = {#}
-{#        tex: {#}
-{#            inlineMath: [['$', '$'], ['\\(', '\\)']]#}
-{#        },#}
-{#        svg: {#}
-{#            fontCache: 'global'#}
-{#        }#}
-{#    };#}
-{#</script>#}
-{#<script id="MathJax-script" src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.1.2/es5/tex-svg.min.js"></script>#}
+<script>
+    hljs.initHighlightingOnLoad();
+    hljs.initLineNumbersOnLoad();
+    MathJax = {
+        tex: {
+            inlineMath: [['$', '$'], ['\\(', '\\)']]
+        },
+        svg: {
+            fontCache: 'global'
+        }
+    };
+</script>
+<script id="MathJax-script" src="https://cdn.bootcdn.net/ajax/libs/mathjax/3.1.2/es5/tex-svg.min.js"></script>
 
 </body>
 </html>

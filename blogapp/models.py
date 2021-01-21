@@ -45,7 +45,7 @@ class Article(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('blog:detail', kwargs={'pk': self.pk})
+        return reverse('blog_app:detail', kwargs={'pk': self.pk})
 
     def save(self, *args, **kwargs):
         if not self.excerpt:

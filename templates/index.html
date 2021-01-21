@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
 {% block main %}
-    {% for aritcle_item in article_list %}
+    {% for article_item in article_list %}
         <article class="post post-{{ article_item.pk }}">
             <header class="entry-header">
                 <h1 class="entry-title">
-                    <a href="{{ aritcle_item.get_absolute_url }}">{{ article_item.title }}</a>
+                    <a href="{{ article_item.get_absolute_url }}">{{ article_item.title }}</a>
                 </h1>
                 <div class="entry-meta">
                     <span class="post-category"><a href="#">{{ article_item.category.name }}</a></span>
@@ -19,9 +19,9 @@
                 </div>
             </header>
             <div class="entry-content clearfix">
-                <p>{{ aritcle_item.excerpt  }}</p>
+                <p>{{ article_item.excerpt  }}</p>
                 <div class="read-more cl-effect-14">
-                    <a href="{{ aritcle_item.get_absolute_url }}" class="more-link">继续阅读 <span
+                    <a href="{{ article_item.get_absolute_url }}" class="more-link">继续阅读 <span
                             class="meta-nav">→</span></a>
                 </div>
             </div>
