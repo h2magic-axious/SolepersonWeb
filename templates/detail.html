@@ -5,16 +5,10 @@
         <header class="entry-header">
             <h1 class="entry-title">{{ article_item.title }}</h1>
             <div class="entry-meta">
-                <span class="post-category"><a href="#"><span
-                        class="label label-info">{{ article_item.category.name }}</span></a></span>
-                <span class="post-date">
-                    <a href="#">
-                        <time class="entry-date"
-                              datetime="{{ article_item.created_time }}">{{ article_item.created_time }}</time>
-                    </a>
-                </span>
-                <span class="comments-link"><a href="#">4 评论</a></span>
-                <span class="views-count"><a href="#">588 阅读</a></span>
+                <span class="label label-warning"><a href="#">{{ article_item.category.name }}</a></span>
+                <span class="label label-info">{{ article_item.created_time.date }}</span>
+                <span class="label label-primary"> 4 评论</span>
+                <span class="label label-success">588 阅读</span>
             </div>
         </header>
         <div class="entry-content clearfix">
@@ -75,4 +69,11 @@
             </ul>
         </div>
     </section>
+{% endblock %}
+
+{% block toc %}
+    <div class="widget widget-content">
+        <h3 class="widget-title">文章目录</h3>
+        {{ article_toc|safe }}
+    </div>
 {% endblock %}

@@ -7,19 +7,17 @@
                 <h1 class="entry-title">
                     <a href="{{ article_item.get_absolute_url }}">{{ article_item.title }}</a>
                 </h1>
+
                 <div class="entry-meta">
-                    <span class="post-category"><a href="#">{{ article_item.category.name }}</a></span>
-                    <span class="post-date">
-                                    <time class="entry-date" datetime="{{ article_item.created_time }}">
-                                        {{ article_item.created_time }}
-                                    </time>
-                                </span>
-                    <span class="comments-link">4 评论</span>
-                    <span class="views-count">588 阅读</span>
+                    <span class="label label-warning"><a href="#">{{ article_item.category.name }}</a></span>
+                    <span class="label label-info">{{ article_item.created_time.date }}</span>
+                    <span class="label label-primary"> 4 评论</span>
+                    <span class="label label-success">588 阅读</span>
                 </div>
+
             </header>
             <div class="entry-content clearfix">
-                <p>{{ article_item.excerpt  }}</p>
+                <p>{{ article_item.excerpt }}</p>
                 <div class="read-more cl-effect-14">
                     <a href="{{ article_item.get_absolute_url }}" class="more-link">继续阅读 <span
                             class="meta-nav">→</span></a>

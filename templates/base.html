@@ -1,6 +1,7 @@
 {% load static %}
+{% load blog_app_tags %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Axious</title>
 
@@ -102,7 +103,14 @@
                 {% endblock %}
             </main>
             <aside class="col-md-4">
-                {% include 'aside.html' %}
+                {% block toc %}
+                {% endblock %}
+
+                {% show_recent_articles %}
+                {% show_archives %}
+                {% show_categories %}
+                {% show_tags %}
+
             </aside>
         </div>
     </div>

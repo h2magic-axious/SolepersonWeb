@@ -46,12 +46,3 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('blog_app:detail', kwargs={'pk': self.pk})
-
-    def save(self, *args, **kwargs):
-        if not self.excerpt:
-            md = markdown.Markdown(extensions=[
-                'markdown.extensions.extra',
-                'markdown.extensions.codehilite'
-            ])
-            self.excerpt = strip_tags(md.convert(self.content))[:50]
-            super().save(*args, **kwargs)
