@@ -36,6 +36,8 @@ class Article(models.Model):
     category = models.ForeignKey(Category, verbose_name='分类', on_delete=models.CASCADE)
     tags = models.ManyToManyField(Tag, verbose_name='标签', blank=True)
 
+    seo_keywords = models.CharField('SEO', max_length=100, blank=True)
+
     class Meta:
         verbose_name = '文章'
         verbose_name_plural = verbose_name

@@ -7,7 +7,7 @@ from blogapp.models import Article, Category, Tag
 
 class ArticleAdmin(admin.ModelAdmin):
     list_display = ['title', 'created_time', 'category']
-    fields = ['title', 'excerpt', 'content', 'category', 'tags']
+    fields = ['title', 'excerpt', 'content', 'category', 'tags', 'seo_keywords']
 
 
 class CategoryAdmin(admin.ModelAdmin):

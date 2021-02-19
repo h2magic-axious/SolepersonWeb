@@ -35,4 +35,8 @@ def show_tags(context):
 
 @register.simple_tag
 def seo_keywords(article):
+    seo_string = article.seo_keywords
+    if seo_string:
+        return ','.join(seo_string.split())
+
     return ','.join(tag.name for tag in article.tags.all())
