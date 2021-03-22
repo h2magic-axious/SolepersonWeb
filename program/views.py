@@ -29,7 +29,7 @@ class ProgramJournalView(PaginationMixin, ListView):
 
 class ProgramJournalDetail(DetailView):
     model = ProgramJournal
-    template_name = 'detail.html'
+    template_name = 'program/detail.html'
     context_object_name = 'journal'
 
     def get_object(self, queryset=None):
