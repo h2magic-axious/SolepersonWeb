@@ -30,4 +30,15 @@ class ProgramJournalView(PaginationMixin, ListView):
 class ProgramJournalDetail(DetailView):
     model = ProgramJournal
     template_name = 'detail.html'
-    context_object_name = 'article_item'
+    context_object_name = 'journal'
+
+    def get_object(self, queryset=None):
+        journal = super(ProgramJournalDetail, self).get_object(queryset=None)
+        MARKDOWN = markdown.Markdown(extensions=[
+            'markdown.extensions.extra',
+            'markdown.extensions.codehilite',
+            'markdown.extensions.toc'
+        ])
+        journal.body = MARKDOWN.convert(journal.body)
+        journal.toc = MARKDOWN.toc
+        return journal

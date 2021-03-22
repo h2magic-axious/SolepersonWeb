@@ -4,22 +4,21 @@
 {% block main %}
     <article class="post post-1">
         <header class="entry-header">
-            <h1 class="entry-title">{{ article_item.title }}</h1>
+            <h1 class="entry-title">{{ journal.title }}</h1>
             <div class="entry-meta">
-                <span class="label label-info">{{ article_item.created_time.date }}</span>
+                <span class="label label-info">{{ journal.created_time.date }}</span>
             </div>
         </header>
         <div class="entry-content clearfix">
-            {{ article_item.body | safe }}
+            {{ journal.body | safe }}
         </div>
     </article>
-
 {% endblock %}
 
 {% block toc %}
     <div class="widget widget-content">
         <h3 class="widget-title">目录</h3>
-        {{ article_item.toc|safe }}
+        {{ journal.toc|safe }}
     </div>
 {% endblock %}
 
