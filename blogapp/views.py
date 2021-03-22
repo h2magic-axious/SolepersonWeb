@@ -71,6 +71,10 @@ class ArticleDetailView(DetailView):
         ])
         article.body = MARKDOWN.convert(article.content)
         article.toc = MARKDOWN.toc
+
+        if article.seo_keywords:
+            article.seo_keywords = ','.join(article.seo_keywords.split())
+
         return article
 
 

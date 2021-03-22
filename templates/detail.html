@@ -5,7 +5,7 @@
 
 {% block seo %}
     <meta name="description" content="{{ article_item.excerpt }}">
-    <meta name="keywords" content="{% seo_keywords article_item %}">
+    <meta name="keywords" content="{{ article_item.seo_keywords }}">
 {% endblock %}
 
 {% block main %}
