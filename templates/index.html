@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load blog_app_tags %}
 {% block seo %}
     <meta name="description" content="一念之人 一个热爱数学物理的计算机工作者">
     <meta name="keywords" content="一念之人,数学,计算机,Python,算法,C/C++">
@@ -17,7 +17,7 @@
                     <span class="label label-warning"><a href="#">{{ article_item.category.name }}</a></span>
                     <span class="label label-info">{{ article_item.created_time.date }}</span>
                     <span class="label label-primary"> {{ article_item.blogcomment_set.count }} 评论</span>
-                    <span class="label label-success">{{ article_item.views }} 阅读</span>
+                    <span class="label label-success">{{ article_item.views }} 阅读 </span>
                 </div>
 
             </header>
@@ -32,4 +32,11 @@
     {% if is_paginated %}
         {{ page_obj.render }}
     {% endif %}
+{% endblock %}
+
+{% block toc %}
+    {% show_recent_articles %}
+    {% show_archives %}
+    {% show_categories %}
+    {% show_tags %}
 {% endblock %}

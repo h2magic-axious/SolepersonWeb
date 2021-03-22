@@ -39,6 +39,12 @@
         <h3 class="widget-title">文章目录</h3>
         {{ article_item.toc|safe }}
     </div>
+
+    {% show_recent_articles %}
+    {% show_archives %}
+    {% show_categories %}
+    {% show_tags %}
+
 {% endblock %}
 
 {% block sub_static_files %}
