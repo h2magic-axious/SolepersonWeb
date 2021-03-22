@@ -11,8 +11,8 @@ class ProgramNameAdmin(admin.ModelAdmin):
 
 
 class ProgramJournalAdmin(admin.ModelAdmin):
-    list_display = ['title', 'created_time']
-    fields = ['title', 'excerpt', 'body']
+    list_display = ['title', 'created_time', 'program_name']
+    fields = ['title', 'excerpt', 'body', 'program_name']
 
 
 admin.site.register(ProgramName, ProgramNameAdmin)
