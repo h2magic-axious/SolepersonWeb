@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block seo %}
+    <meta name="description" content="一念之人 一个热爱数学物理的计算机工作者">
+    <meta name="keywords" content="一念之人,数学,计算机,Python,算法,C/C++">
+{% endblock %}
+
+{% block main %}
+    {% for program in program_list %}
+        <article class="post post-{{ program.pk }}">
+            <header class="entry-header">
+                <h1 class="entry-title">
+                    <a href="{{ program.get_absolute_url }}">{{ program.name }}</a>
+                </h1>
+            </header>
+
+            <div class="entry-meta">
+                <span class="label label-info"><a href="{{ program.github_url }}">项目地址</a></span>
+                <span class="label label-success"><a href="{{ program.document_url }}">策划文档</a></span>
+                <span class="label label-primary">{{ program.created_time.date }}</span>
+                <span class="label label-warning">最后更新于：{{ program.modified_time.date }}</span>
+            </div>
+
+            <div class="entry-content clearfix">
+                <p>{{ program.excerpt }}</p>
+            </div>
+        </article>
+    {% empty %}
+        <div class="no-post">暂时还没有开始的项目！</div>
+    {% endfor %}
+
+    {% if is_paginated %}
+        {{ page_obj.render }}
+    {% endif %}
+{% endblock %}

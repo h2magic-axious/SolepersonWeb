@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load comment_tags %}
+{% load blog_app_tags %}
+
+{% block main %}
+    <article class="post post-1">
+        <header class="entry-header">
+            <h1 class="entry-title">{{ article_item.title }}</h1>
+            <div class="entry-meta">
+                <span class="label label-info">{{ article_item.created_time.date }}</span>
+            </div>
+        </header>
+        <div class="entry-content clearfix">
+            {{ article_item.body | safe }}
+        </div>
+    </article>
+
+{% endblock %}
+
+{% block toc %}
+    <div class="widget widget-content">
+        <h3 class="widget-title">目录</h3>
+        {{ article_item.toc|safe }}
+    </div>
+{% endblock %}
+
+{% block sub_static_files %}
+    <script src="{% static 'mathjax/tex-mml-chtml.min.js' %}"></script>
+    <script src="{% static 'mathjax/highlight.min.js' %}"></script>
+    <script src="{% static 'mathjax/highlightjs-line-numbers.min.js' %}"></script>
+
+    <script>
+        hljs.initHighlightingOnLoad();
+        hljs.initLineNumbersOnLoad();
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script id="MathJax-script" src="{% static 'mathjax/tex-svg.min.js' %}"></script>
+{% endblock %}

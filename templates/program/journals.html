@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block seo %}
+    <meta name="description" content="一念之人 一个热爱数学物理的计算机工作者">
+    <meta name="keywords" content="一念之人,数学,计算机,Python,算法,C/C++">
+{% endblock %}
+
+{% block main %}
+    {% for article_item in article_list %}
+        <article class="post post-{{ article_item.pk }}">
+            <header class="entry-header">
+                <h1 class="entry-title">
+                    <a href="{{ article_item.get_absolute_url }}">{{ article_item.title }}</a>
+                </h1>
+
+                <div class="entry-meta">
+                    <span class="label label-info">{{ article_item.created_time.date }}</span>
+                </div>
+
+            </header>
+            <div class="entry-content clearfix">
+                <p>{{ article_item.excerpt }}</p>
+            </div>
+        </article>
+    {% empty %}
+        <div class="no-post">暂时还没有发布的日志！</div>
+    {% endfor %}
+
+    {% if is_paginated %}
+        {{ page_obj.render }}
+    {% endif %}
+{% endblock %}

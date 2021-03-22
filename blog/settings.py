@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'blogapp.apps.BlogappConfig',
     'comment.apps.BlogCommentConfig',
+    'program.apps.ProgramConfig'
 ]
 
 MIDDLEWARE = [
