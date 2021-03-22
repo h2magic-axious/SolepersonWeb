@@ -39,3 +39,8 @@ class ProgramJournal(models.Model):
 
     def get_absolute_url(self):
         return reverse('program:program_detail', kwargs={'pk': self.pk})
+
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        self.program_name.modified_time = self.created_time
+        self.program_name.save(update_fields=['modified_time'])
